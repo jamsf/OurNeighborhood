@@ -1,11 +1,12 @@
 package twogames;
-import com.haxepunk.Scene;
 
-class MainScene extends Scene
+import extendedhxpunk.ext.EXTScene;
+
+class MainScene extends EXTScene
 {
 	 public function new()
 	 {
 		super();
 	 }
-	  
  }
+ 

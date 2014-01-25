@@ -1,0 +1,745 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Void",
+				"Void"
+			],
+			[
+				"_patte",
+				"_patternKeyFramesCompleted	var"
+			],
+			[
+				"_pa",
+				"_patternKeyFramesCompleted	var"
+			],
+			[
+				"JVEne",
+				"JVEnemyClass	jitv.datamodel.staticdata"
+			],
+			[
+				"_pat",
+				"_patternMotion	var"
+			],
+			[
+				"add",
+				"addTween"
+			],
+			[
+				"_patt",
+				"_patternKeyFramesCompleted	var"
+			],
+			[
+				"_patter",
+				"_patternKeyFramesCompleted"
+			],
+			[
+				"JVEnemy",
+				"JVEnemyEntity"
+			],
+			[
+				"JVEnem",
+				"JVEnemyEntity"
+			],
+			[
+				"extend",
+				"extendedhxpunk"
+			],
+			[
+				"_",
+				"_patternKeyFramesCompleted	var"
+			],
+			[
+				"JVLev",
+				"JVLevelGenerator"
+			],
+			[
+				"next",
+				"nextSpawnTimeInt	var"
+			],
+			[
+				"JVLevle",
+				"JVLevelGenerator	jitv.procedural"
+			],
+			[
+				"cla",
+				"classId"
+			],
+			[
+				"spaw",
+				"spawnTime"
+			],
+			[
+				"spa",
+				"spawnTime"
+			],
+			[
+				"enemyP",
+				"enemyPatternFromString"
+			],
+			[
+				"el",
+				"elseif"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "project.xml",
+			"settings":
+			{
+				"buffer_size": 1045,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "package twogames;\n\nimport com.haxepunk.Engine;\nimport com.haxepunk.HXP;\nimport extendedhxpunk.ext.EXTConsole;\n\nclass Main extends Engine\n{\n\n	public static inline var kClearColor:Int = 0xff7777;\n	public static inline var kProjectName:String = \"JitV\";\n\n	function new()\n	{\n		super(JVConstants.PLAY_SPACE_WIDTH, JVConstants.PLAY_SPACE_HEIGHT, JVConstants.FPS, false);\n		JVDataObject.setupFakeDB();\n	}\n\n	override public function init()\n	{\n		EXTConsole.initializeConsole();\n		HXP.screen.color = kClearColor;\n		HXP.screen.scale = 1;\n		\n		JVSceneManager.sharedInstance().goToMainMenuScene();\n	}\n	\n	override public function update():Void\n	{\n		super.update();\n		JVSceneManager.sharedInstance().update();\n#if debug\n		EXTConsole.update();\n#end\n	}\n	\n	public static function main()\n	{\n		var app = new Main();\n	}\n\n}",
+			"file": "src/twogames/Main.hx",
+			"file_size": 299,
+			"file_write_time": 130351014680000000,
+			"settings":
+			{
+				"buffer_size": 800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "package twogames;\n\n",
+			"settings":
+			{
+				"buffer_size": 19,
+				"line_ending": "Unix",
+				"name": "package twogames;"
+			}
+		},
+		{
+			"file": "GGJ.sublime-project",
+			"settings":
+			{
+				"buffer_size": 1368,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "OpenFL OSX Debug Test",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"package inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 51.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) ",
+			"	import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			" import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			" import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/usr/local/flashpunk/projects/JitV/JitV.sublime-project",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/Main.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/scenes/JVCombatScene.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Tilemap.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/atlas/Atlas.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Image.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Graphic.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Entity.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/masks/Pixelmask.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/entities/JVEnemyEntity.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/tweens/motion/LinearMotion.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/tweens/motion/LinearPath.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Tweener.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Tween.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UIView.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/ui/JVExampleDialog.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UIImageView.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Text.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/RenderMode.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/HXP.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Engine.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Scene.hx",
+		"/usr/local/flashpunk/projects/JitV/application.xml",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/staticdata/JVEnemyPattern.hx",
+		"/usr/local/funzio/cc2-assets/fletcher.cole.cc2/projects/crime_city_2/art/ui/working_psds/pvp/D3_pvp_battlesummary_win_attack.json",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ext/EXTUtility.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/staticdata/JVEnemyClass.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/proceduraldata/JVEnemy.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/procedural/JVLevelGenerator.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/proceduraldata/JVLevel.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/JVDataObject.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/debug/Console.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/scenes/JVMainMenuScene.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/scenes/JVLevelSelectScene.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/entities/JVPlayerShipEntity.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/masks/Hitbox.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Mask.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UILabel.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ext/EXTScene.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/scenes/JVSceneManager.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Canvas.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UITextButton.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/LICENSE",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/Main.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/tweens/motion/CubicMotion.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Backdrop.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Stamp.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UISmartStretchButton.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UISmartImageStretchView.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/PreRotation.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/Preloader.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/staticdata/JVEnemy.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/tweens/TweenEvent.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/debug/LayerList.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/JVConstants.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ext/EXTCamera.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/haxelib.json",
+		"/usr/local/flashpunk/projects/JitV/README.md",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/atlas/AtlasData.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/CHANGELOG.md",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/Animation.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/atlas/AtlasRegion.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/io/Gamepad.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/include.xml",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/src/extendedhxpunk/ui/UIButton.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/tweens/misc/AngleTween.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/TiledSpritemap.hx",
+		"/usr/local/flashpunk/projects/JitV/libraries/ExtendedHaxepunk/HaxePunk/com/haxepunk/graphics/TiledImage.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/proceduraldata/JVShipChassis.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/proceduraldata/JVShipWeapon.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/persistentdata/JVShipSpec.hx",
+		"/usr/local/flashpunk/projects/JitV/JitV.hxproj",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/datamodel/staticdata/JVShipChassis.hx",
+		"/usr/local/flashpunk/projects/JitV/src/jitv/ui/JVHudView.hx",
+		"/usr/local/flashpunk/projects/JitV/.gitignore",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Users/fletcher.cole/Desktop/blah blah test sublime file"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"render(",
+			"blit",
+			"text",
+			"pressed",
+			"tween",
+			"addEventListener",
+			"Persist",
+			"type",
+			"offset",
+			"blah",
+			"time",
+			"setupFakeDB",
+			"new Map",
+			"collide",
+			"HITBOX",
+			"width",
+			"set_layer",
+			"rendermode",
+			"visib",
+			"_enti",
+			"findParentSprite",
+			"_field",
+			"render(",
+			"add("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "project.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1045,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								806,
+								806
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/twogames/Main.hx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								797,
+								797
+							]
+						],
+						"settings":
+						{
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								19
+							]
+						],
+						"settings":
+						{
+							"auto_name": "package twogames;",
+							"default_dir": "/usr/local/flashpunk/projects/GGJ2014/src/twogames",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "GGJ.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								830,
+								830
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 79.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "GGJ.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"extscene",
+				"ExtendedHaxepunk/extendedhxpunk/ext/EXTScene.hx"
+			],
+			[
+				"uilla",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UILabel.hx"
+			],
+			[
+				"sc",
+				"HaxePunk/com/haxepunk/Scene.hx"
+			],
+			[
+				"text",
+				"HaxePunk/com/haxepunk/graphics/Text.hx"
+			],
+			[
+				"uila",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UILabel.hx"
+			],
+			[
+				"uiview",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UIView.hx"
+			],
+			[
+				"sceneman",
+				"Source/jitv/scenes/JVSceneManager.hx"
+			],
+			[
+				"enemypa",
+				"Source/jitv/datamodel/staticdata/JVEnemyPattern.hx"
+			],
+			[
+				"",
+				"Source/jitv/entities/JVEnemyEntity.hx"
+			],
+			[
+				"enemyeni",
+				"Source/jitv/entities/JVEnemyEntity.hx"
+			],
+			[
+				"enemycl",
+				"Source/jitv/datamodel/staticdata/JVEnemyClass.hx"
+			],
+			[
+				"comba",
+				"Source/jitv/scenes/JVCombatScene.hx"
+			],
+			[
+				"enemyen",
+				"Source/jitv/entities/JVEnemyEntity.hx"
+			],
+			[
+				"levelgen",
+				"Source/jitv/procedural/JVLevelGenerator.hx"
+			],
+			[
+				"enemycla",
+				"Source/jitv/datamodel/staticdata/JVEnemyClass.hx"
+			],
+			[
+				"main",
+				"Source/jitv/Main.hx"
+			],
+			[
+				"hxp",
+				"HaxePunk/com/haxepunk/HXP.hx"
+			],
+			[
+				"tweener",
+				"HaxePunk/com/haxepunk/Tweener.hx"
+			],
+			[
+				"enti",
+				"HaxePunk/com/haxepunk/Entity.hx"
+			],
+			[
+				"tween.",
+				"HaxePunk/com/haxepunk/Tween.hx"
+			],
+			[
+				"extuti",
+				"ExtendedHaxepunk/extendedhxpunk/ext/EXTUtility.hx"
+			],
+			[
+				"enemypat",
+				"Source/jitv/datamodel/staticdata/JVEnemyPattern.hx"
+			],
+			[
+				"jvenem",
+				"Source/jitv/datamodel/staticdata/JVEnemy.hx"
+			],
+			[
+				"appl",
+				"Project Files/application.xml"
+			],
+			[
+				"playershipen",
+				"Source/jitv/entities/JVPlayerShipEntity.hx"
+			],
+			[
+				"enemyent",
+				"Source/jitv/entities/JVEnemyEntity.hx"
+			],
+			[
+				"playershi",
+				"Source/jitv/entities/JVPlayerShipEntity.hx"
+			],
+			[
+				"pix",
+				"HaxePunk/com/haxepunk/masks/Pixelmask.hx"
+			],
+			[
+				"hitbo",
+				"HaxePunk/com/haxepunk/masks/Hitbox.hx"
+			],
+			[
+				"pixel",
+				"HaxePunk/com/haxepunk/masks/Pixelmask.hx"
+			],
+			[
+				"mask",
+				"HaxePunk/com/haxepunk/Mask.hx"
+			],
+			[
+				"hitbox",
+				"HaxePunk/com/haxepunk/masks/Hitbox.hx"
+			],
+			[
+				"pixelma",
+				"HaxePunk/com/haxepunk/masks/Pixelmask.hx"
+			],
+			[
+				"entit",
+				"HaxePunk/com/haxepunk/Entity.hx"
+			],
+			[
+				"conso",
+				"HaxePunk/com/haxepunk/debug/Console.hx"
+			],
+			[
+				"en",
+				"HaxePunk/com/haxepunk/Entity.hx"
+			],
+			[
+				"enemy",
+				"Source/jitv/entities/JVEnemyEntity.hx"
+			],
+			[
+				"playership",
+				"Source/jitv/entities/JVPlayerShipEntity.hx"
+			],
+			[
+				"entity",
+				"HaxePunk/com/haxepunk/Entity.hx"
+			],
+			[
+				"uiimage",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UIImageView.hx"
+			],
+			[
+				"uilab",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UILabel.hx"
+			],
+			[
+				"graphic",
+				"HaxePunk/com/haxepunk/Graphic.hx"
+			],
+			[
+				"uiimagevie",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UIImageView.hx"
+			],
+			[
+				"uivie",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UIView.hx"
+			],
+			[
+				"gra",
+				"HaxePunk/com/haxepunk/Graphic.hx"
+			],
+			[
+				"extsc",
+				"ExtendedHaxepunk/extendedhxpunk/ext/EXTScene.hx"
+			],
+			[
+				"jvcom",
+				"Source/jitv/scenes/JVCombatScene.hx"
+			],
+			[
+				"scenemana",
+				"Source/jitv/scenes/JVSceneManager.hx"
+			],
+			[
+				"engin",
+				"HaxePunk/com/haxepunk/Engine.hx"
+			],
+			[
+				"render",
+				"HaxePunk/com/haxepunk/RenderMode.hx"
+			],
+			[
+				"canva",
+				"HaxePunk/com/haxepunk/graphics/Canvas.hx"
+			],
+			[
+				"uitext",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UITextButton.hx"
+			],
+			[
+				"graph",
+				"HaxePunk/com/haxepunk/Graphic.hx"
+			],
+			[
+				"scene",
+				"HaxePunk/com/haxepunk/Scene.hx"
+			],
+			[
+				"console",
+				"HaxePunk/com/haxepunk/debug/Console.hx"
+			],
+			[
+				"image",
+				"HaxePunk/com/haxepunk/graphics/Image.hx"
+			],
+			[
+				"uilabe",
+				"ExtendedHaxepunk/extendedhxpunk/ui/UILabel.hx"
+			],
+			[
+				"mainmenusc",
+				"Source/jitv/scenes/JVMainMenuScene.hx"
+			],
+			[
+				"atlas",
+				"HaxePunk/com/haxepunk/graphics/atlas/Atlas.hx"
+			],
+			[
+				"tile",
+				"HaxePunk/com/haxepunk/graphics/Tilemap.hx"
+			],
+			[
+				"jvcombat",
+				"src/jitv/scenes/JVCombatScene.hx"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 395.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 182.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
+}
