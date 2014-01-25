@@ -1,0 +1,13 @@
+-main ApplicationMain 
+-lib openfl
+-cp src
+-cp lib/ExtendedHaxePunk/src
+-cp lib/ExtendedHaxePunk/HaxePunk
+-D tools=1.2.8
+-D fdb
+-D web
+-swf-version 11.2
+-swf bin/flash/bin/TwoGames.swf
+-swf-header 640:480:30:333333
+-cp bin/flash/haxe
+#--remap nme:flash

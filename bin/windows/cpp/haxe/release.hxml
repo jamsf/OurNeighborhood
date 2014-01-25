@@ -1,0 +1,17 @@
+-main ApplicationMain 
+-lib openfl
+-lib openfl-native
+-lib hxlibc
+-cp src
+-cp lib/ExtendedHaxePunk/src
+-cp lib/ExtendedHaxePunk/HaxePunk
+-D tools=1.2.8
+-D lime_native
+-D no-compilation
+-D windows
+-D desktop
+-cp bin/windows/cpp/haxe
+-cpp bin/windows/cpp/obj
+--macro allowPackage("flash")
+--macro keep("twogames.Main")
+-D no-compilation
