@@ -179,6 +179,7 @@ const char *__hxcpp_all_files[] = {
 	"twogames/entities/Flyer.hx",
 	"twogames/entities/GameEntity.hx",
 	"twogames/entities/Player.hx",
+	"twogames/entities/Shifter.hx",
 	"twogames/entities/Walker.hx",
 	"twogames/scenes/MainRoom.hx",
 #endif

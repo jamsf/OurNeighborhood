@@ -3,18 +3,24 @@
 <compilerflag value="-Iinclude"/>
   <file name="src/twogames/scenes/MainRoom.cpp">
    <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
    <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
    <depend name="include/com/haxepunk/Scene.h"/>
    <depend name="include/com/haxepunk/Screen.h"/>
    <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
    <depend name="include/com/haxepunk/tmx/TmxEntity.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
    <depend name="include/extendedhxpunk/ext/EXTCamera.h"/>
    <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
    <depend name="include/extendedhxpunk/ext/EXTScene.h"/>
    <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
    <depend name="include/twogames/entities/Flyer.h"/>
    <depend name="include/twogames/entities/GameEntity.h"/>
    <depend name="include/twogames/entities/Player.h"/>
+   <depend name="include/twogames/entities/Shifter.h"/>
    <depend name="include/twogames/entities/Walker.h"/>
    <depend name="include/twogames/scenes/MainRoom.h"/>
   </file>
@@ -32,20 +38,54 @@
    <depend name="include/com/haxepunk/utils/Joystick.h"/>
    <depend name="include/extendedhxpunk/ext/EXTMath.h"/>
    <depend name="include/flash/geom/Point.h"/>
-   <depend name="include/twogames/entities/ActorFacing.h"/>
-   <depend name="include/twogames/entities/ActorPosition.h"/>
    <depend name="include/twogames/entities/GameEntity.h"/>
    <depend name="include/twogames/entities/Walker.h"/>
    <depend name="include/twogames/entities/WalkerBehavior.h"/>
+   <depend name="include/twogames/entities/WalkerFacing.h"/>
+   <depend name="include/twogames/entities/WalkerPosition.h"/>
   </file>
-  <file name="src/twogames/entities/ActorPosition.cpp">
-   <depend name="include/twogames/entities/ActorPosition.h"/>
+  <file name="src/twogames/entities/WalkerPosition.cpp">
+   <depend name="include/twogames/entities/WalkerPosition.h"/>
   </file>
   <file name="src/twogames/entities/WalkerBehavior.cpp">
    <depend name="include/twogames/entities/WalkerBehavior.h"/>
   </file>
-  <file name="src/twogames/entities/ActorFacing.cpp">
-   <depend name="include/twogames/entities/ActorFacing.h"/>
+  <file name="src/twogames/entities/WalkerFacing.cpp">
+   <depend name="include/twogames/entities/WalkerFacing.h"/>
+  </file>
+  <file name="src/twogames/entities/Shifter.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Animation.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Spritemap.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
+   <depend name="include/com/haxepunk/utils/Joystick.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTMath.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/twogames/entities/ActorPosition.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+   <depend name="include/twogames/entities/Shifter.h"/>
+   <depend name="include/twogames/entities/ShifterBehavior.h"/>
+   <depend name="include/twogames/entities/ShifterFacing.h"/>
+   <depend name="include/twogames/entities/ShifterPosition.h"/>
+  </file>
+  <file name="src/twogames/entities/ActorPosition.cpp">
+   <depend name="include/twogames/entities/ActorPosition.h"/>
+  </file>
+  <file name="src/twogames/entities/ShifterPosition.cpp">
+   <depend name="include/twogames/entities/ShifterPosition.h"/>
+  </file>
+  <file name="src/twogames/entities/ShifterBehavior.cpp">
+   <depend name="include/twogames/entities/ShifterBehavior.h"/>
+  </file>
+  <file name="src/twogames/entities/ShifterFacing.cpp">
+   <depend name="include/twogames/entities/ShifterFacing.h"/>
   </file>
   <file name="src/twogames/entities/Player.cpp">
    <depend name="include/com/haxepunk/Entity.h"/>

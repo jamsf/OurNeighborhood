@@ -17,6 +17,9 @@ class Player extends Entity
 		super(x, y);
 		
 		_controllingEntity = controllingEntity;
+		this.type = "Player";
+		setHitbox(32, 32);
+		centerOrigin();
 	}
 	
 	override public function update():Void 
@@ -28,4 +31,7 @@ class Player extends Entity
 	}
 	
 	private var _controllingEntity:GameEntity;
+	
+	public var Controlling(get, never):GameEntity;
+	public function get_Controlling():GameEntity { return _controllingEntity; }
 }

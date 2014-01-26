@@ -2,6 +2,7 @@ package twogames.entities;
 
 import flash.display.Bitmap;
 import flash.geom.Point;
+import twogames.ui.PopupText;
 import twogames.entities.Walker.WalkerBehavior;
 
 import com.haxepunk.graphics.Image;
@@ -23,7 +24,7 @@ import nme.Assets;
 import openfl.Assets;
 #end
 
-enum ActorFacing
+enum WalkerFacing
 {
 	LEFT;
 	RIGHT;
@@ -38,7 +39,7 @@ enum WalkerBehavior
 	JUMP;
 }
 
-enum ActorPosition
+enum WalkerPosition
 {
 	ON_GROUND;
 	IN_AIR;
@@ -53,8 +54,8 @@ class Walker extends GameEntity
         public var gamepad(get, never):Joystick;
         public function get_gamepad():Joystick { return _gamepad; }
         
-        public var Facing(get, never):ActorFacing;
-        public function get_Facing():ActorFacing { return _facing; }
+        public var Facing(get, never):WalkerFacing;
+        public function get_Facing():WalkerFacing { return _facing; }
         
         public function new(startX:Int, startY:Int, controlled:Bool=false) 
         {
@@ -76,7 +77,7 @@ class Walker extends GameEntity
 			//tweak the bounding box for better feel
 			width = 32;
 			height = 32;
-			_facing = ActorFacing.LEFT;
+			_facing = WalkerFacing.LEFT;
 			_gamepad = Input.joystick(0);
 			
 			_spritemap = new Spritemap("gfx/walker_spritesheet.png", 32, 32);
@@ -86,17 +87,27 @@ class Walker extends GameEntity
 			
 			graphic = _spritemap;
 			_spritemap.play("idle");
+			
+			_popupText = new PopupText(this, walkerText());
+			
         }
         
         override public function added():Void 
         {
             super.added();
+			HXP.scene.add(_popupText);
         }
         
         override public function update():Void
         {
 			updateMovement();
 			updateAnimation();
+			
+			if (!_controlled && this.collide("Player", x, y) != null)
+			{
+				EXTConsole.debug("Walker", "HIT PLAYER!", []);
+				_popupText.startTextRead();
+			}
 			
 			super.update();
         }
@@ -108,13 +119,13 @@ class Walker extends GameEntity
 			{
 				var img : Image = cast(graphic, Image);
 				img.flipped = true;
-				_facing = ActorFacing.LEFT;
+				_facing = WalkerFacing.LEFT;
 			}
 			else if (_xVel > 0 && _facing != RIGHT)
 			{
 				var img : Image = cast(graphic, Image);
 				img.flipped = false;
-				_facing = ActorFacing.RIGHT;
+				_facing = WalkerFacing.RIGHT;
 			}
 			
 			if (_xVel > 0.1 || _xVel < -0.1)
@@ -233,6 +244,21 @@ class Walker extends GameEntity
 					_AIBehavior = JUMP;
 			}
 		}
+		
+		private function walkerText():Array<String>
+		{
+			return 
+			[
+				"It looks so pretty up there...",
+				"It's hard just to make ends meet.",
+				"I don't want to lose anything more",
+				"I wish things were the way they used to be...",
+				"It's getting so expensive here.",
+				"I can't believe how much this place has changed.",
+				"What a dump...",
+				"Times have been rough."
+			];
+		}
         
         /* Movement Constants */
         private static var GRAVITY : Float = 0.6;
@@ -245,13 +271,15 @@ class Walker extends GameEntity
         private static var DECEL : Float = 3;
         private static var JUMP_POWER : Float = 10;
         
-        private var _position : ActorPosition;
-        private var _facing : ActorFacing;
+        private var _position : WalkerPosition;
+        private var _facing : WalkerFacing;
         private var _gamepad : Joystick;
 		
 		private var _AIIdleTimer:Int;
 		private var _AIBehavingTimer:Int;
 		private var _AIBehavior:WalkerBehavior;
+		
+		private var _popupText:PopupText;
         
         private var _spritemap : Spritemap;
 }

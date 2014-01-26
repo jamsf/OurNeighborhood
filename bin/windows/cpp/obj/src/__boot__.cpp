@@ -2,9 +2,14 @@
 
 #include <twogames/scenes/MainRoom.h>
 #include <twogames/entities/Walker.h>
-#include <twogames/entities/ActorPosition.h>
+#include <twogames/entities/WalkerPosition.h>
 #include <twogames/entities/WalkerBehavior.h>
-#include <twogames/entities/ActorFacing.h>
+#include <twogames/entities/WalkerFacing.h>
+#include <twogames/entities/Shifter.h>
+#include <twogames/entities/ActorPosition.h>
+#include <twogames/entities/ShifterPosition.h>
+#include <twogames/entities/ShifterBehavior.h>
+#include <twogames/entities/ShifterFacing.h>
 #include <twogames/entities/Player.h>
 #include <twogames/entities/Flyer.h>
 #include <twogames/entities/GameEntity.h>
@@ -254,9 +259,14 @@ void __boot_all()
 hx::RegisterResources( hx::GetResources() );
 ::twogames::scenes::MainRoom_obj::__register();
 ::twogames::entities::Walker_obj::__register();
-::twogames::entities::ActorPosition_obj::__register();
+::twogames::entities::WalkerPosition_obj::__register();
 ::twogames::entities::WalkerBehavior_obj::__register();
-::twogames::entities::ActorFacing_obj::__register();
+::twogames::entities::WalkerFacing_obj::__register();
+::twogames::entities::Shifter_obj::__register();
+::twogames::entities::ActorPosition_obj::__register();
+::twogames::entities::ShifterPosition_obj::__register();
+::twogames::entities::ShifterBehavior_obj::__register();
+::twogames::entities::ShifterFacing_obj::__register();
 ::twogames::entities::Player_obj::__register();
 ::twogames::entities::Flyer_obj::__register();
 ::twogames::entities::GameEntity_obj::__register();
@@ -746,9 +756,14 @@ hx::RegisterResources( hx::GetResources() );
 ::twogames::entities::GameEntity_obj::__boot();
 ::twogames::entities::Flyer_obj::__boot();
 ::twogames::entities::Player_obj::__boot();
-::twogames::entities::ActorFacing_obj::__boot();
-::twogames::entities::WalkerBehavior_obj::__boot();
+::twogames::entities::ShifterFacing_obj::__boot();
+::twogames::entities::ShifterBehavior_obj::__boot();
+::twogames::entities::ShifterPosition_obj::__boot();
 ::twogames::entities::ActorPosition_obj::__boot();
+::twogames::entities::Shifter_obj::__boot();
+::twogames::entities::WalkerFacing_obj::__boot();
+::twogames::entities::WalkerBehavior_obj::__boot();
+::twogames::entities::WalkerPosition_obj::__boot();
 ::twogames::entities::Walker_obj::__boot();
 ::twogames::scenes::MainRoom_obj::__boot();
 }

@@ -1,8 +1,13 @@
 obj/mscv17-debug-ncxp/src/twogames/scenes/MainRoom.obj
 obj/mscv17-debug-ncxp/src/twogames/entities/Walker.obj
-obj/mscv17-debug-ncxp/src/twogames/entities/ActorPosition.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/WalkerPosition.obj
 obj/mscv17-debug-ncxp/src/twogames/entities/WalkerBehavior.obj
-obj/mscv17-debug-ncxp/src/twogames/entities/ActorFacing.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/WalkerFacing.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/Shifter.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/ActorPosition.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/ShifterPosition.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/ShifterBehavior.obj
+obj/mscv17-debug-ncxp/src/twogames/entities/ShifterFacing.obj
 obj/mscv17-debug-ncxp/src/twogames/entities/Player.obj
 obj/mscv17-debug-ncxp/src/twogames/entities/Flyer.obj
 obj/mscv17-debug-ncxp/src/twogames/entities/GameEntity.obj
