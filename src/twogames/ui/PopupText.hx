@@ -19,16 +19,19 @@ class PopupText extends Entity
 	private var _strs			:Array<String>;
 	private var _visibleTimer	:Int;
 	
+	private var _shake 			:Bool;
 	
-	public function new(owner:Entity, possStrs:Array<String>=null)
+	
+	public function new(owner:Entity, possStrs:Array<String>=null, shake:Bool=false)
 	{
 		super();
 		this._owner = owner;
 		this._possStrs = possStrs;
-		_text = new Text("null", _owner.x - 64, _owner.y - 64, 512, 32);
+		_text = new Text("null", _owner.x - 64, _owner.y - 64, 1024, 32);
 		_text.alpha = 0;
 		_text.size = 16;
 		graphic = _text;
+		_shake = shake;
 		
 		//HXP.world.add(this);
 		
@@ -43,8 +46,11 @@ class PopupText extends Entity
 		{
 			HXP.world.bringToFront(this);
 			
-			//_text.x += (Math.random() * 4 - 2);
-			//dd_text.y += (Math.random() * 4 - 2);
+			if (_shake)
+			{
+				_text.x += (Math.random() * 4 - 2);
+				_text.y += (Math.random() * 4 - 2);
+			}
 			
 			// Turn up alpha & write string
 			if (_strIndex <= _chosenStr.length)
@@ -91,5 +97,10 @@ class PopupText extends Entity
 			_strIndex = 1;
 			_visibleTimer = 60;
 		}
+	}
+	
+	public function privilegeMod(s:Int):Void
+	{
+		_text.size = s;
 	}
 }

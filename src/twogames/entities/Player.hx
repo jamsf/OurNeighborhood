@@ -30,6 +30,20 @@ class Player extends Entity
 		y = _controllingEntity.centerY;
 	}
 	
+	public function changeToShifter():Void
+	{
+		HXP.world.remove(_controllingEntity);
+		_controllingEntity = new Shifter(Std.int(x), Std.int(y) - 32, true);
+		HXP.world.add(_controllingEntity);
+	}
+	
+	public function changeToFlyer():Void
+	{
+		HXP.world.remove(_controllingEntity);
+		_controllingEntity = new Flyer(Std.int(x), Std.int(y), true);
+		HXP.world.add(_controllingEntity);
+	}
+	
 	private var _controllingEntity:GameEntity;
 	
 	public var Controlling(get, never):GameEntity;

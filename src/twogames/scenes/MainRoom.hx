@@ -11,6 +11,8 @@ import twogames.entities.Player;
 import twogames.entities.Flyer;
 import twogames.entities.Shifter;
 import twogames.entities.Walker;
+import twogames.triggers.ChangeToShifter;
+import twogames.MusicController;
 
 import extendedhxpunk.ext.EXTUtility;
 import extendedhxpunk.ext.EXTScene;
@@ -43,20 +45,42 @@ class MainRoom extends EXTScene
 		_room.loadMask("collide", "solid_structure");
 		add(_room);
 		
-		addNPCS();
 		var startX : Int = 18 * 32;
 		var startY : Int = 54 * 32;
 		
-		var plr:Walker = new Walker(startX, startY, true);
-		this.add(plr);
-		_player = new Player(startX, startY, plr);
-		this.add(_player);
+		var lifechance : Float = Math.random();
+		var privileged : Bool = lifechance >= 0.95 ? true : false;
 		
-		this.worldCamera.zoomWithAnchor( -0.2, EXTUtility.ZERO_POINT, EXTOffsetType.CENTER);
+		addNPCS(privileged);
+		MusicController.Instance.stopAll();
+		
+		// Add player
+		if (privileged)
+		{
+			var pvg:Flyer = new Flyer(startX, startY, true);
+			this.add(pvg);
+			_player = new Player(startX, startY, pvg);
+			this.add(_player);
+			MusicController.Instance.marbles.loop();
+		}
+		else
+		{
+			var plr:Walker = new Walker(startX, startY, true);
+			this.add(plr);
+			_player = new Player(startX, startY, plr);
+			this.add(_player);
+			// Play intro music
+			MusicController.Instance.bus.loop();
+		}
+		
+		// Add Triggers
+		this.add(new ChangeToShifter());
+		
+		//this.worldCamera.zoomWithAnchor( -0.2, EXTUtility.ZERO_POINT, EXTOffsetType.CENTER);
 		this.worldCamera.setCurrentPosition(EXTOffsetType.CENTER, new Point(startX, startY));
 	}
 	
-	public function addNPCS()
+	public function addNPCS(privileged:Bool)
 	{
 		// Add Flyers
 		var flyerXPos:Array<Int> = [ 13, 19, 46, 56, 44 ];
@@ -70,14 +94,24 @@ class MainRoom extends EXTScene
 		for (j in 20...90)
 		{
 			if (j % 10 == 0)
-				this.add(new Walker(j * 32, 43 * 32));
+			{
+				var walker : Walker = new Walker(j * 32, 52 * 32);
+				this.add(walker);
+				if (privileged)
+					walker.WalkerText.privilegeMod(8);
+			}
 		}
 		
 		// Add Shifters
 		for (k in 20...90)
 		{
 			if (k % 20 == 0 )
-				this.add(new Shifter(k * 32, 43 * 32));
+			{
+				var shifter : Shifter = new Shifter(k * 32, 43 * 32);
+				this.add(shifter);
+				if (privileged)
+					shifter.ShifterText.privilegeMod(8);
+			}
 		}
 	}
 	

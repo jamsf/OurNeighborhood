@@ -56,6 +56,9 @@ class Walker extends GameEntity
         
         public var Facing(get, never):WalkerFacing;
         public function get_Facing():WalkerFacing { return _facing; }
+		
+		public var WalkerText(get, never):PopupText;
+		public function get_WalkerText():PopupText { return _popupText; }
         
         public function new(startX:Int, startY:Int, controlled:Bool=false) 
         {
@@ -105,7 +108,6 @@ class Walker extends GameEntity
 			
 			if (!_controlled && this.collide("Player", x, y) != null)
 			{
-				EXTConsole.debug("Walker", "HIT PLAYER!", []);
 				_popupText.startTextRead();
 			}
 			
@@ -251,7 +253,6 @@ class Walker extends GameEntity
 			[
 				"It looks so pretty up there...",
 				"It's hard just to make ends meet.",
-				"I don't want to lose anything more",
 				"I wish things were the way they used to be...",
 				"It's getting so expensive here.",
 				"I can't believe how much this place has changed.",

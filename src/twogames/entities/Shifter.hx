@@ -9,6 +9,7 @@ import com.haxepunk.utils.Key;
 import com.haxepunk.utils.Joystick;
 import com.haxepunk.HXP;
 import twogames.scenes.MainRoom;
+import twogames.ui.PopupText;
 
 import extendedhxpunk.ext.EXTMath;
 import extendedhxpunk.ext.EXTConsole;
@@ -56,6 +57,9 @@ class Shifter extends GameEntity
 	public var Facing(get, never):ShifterFacing;
 	public function get_Facing():ShifterFacing { return _facing; }
 	
+	public var ShifterText(get, never):PopupText;
+	public function get_ShifterText():PopupText { return _popupText; }
+	
 	public function new(startX:Int, startY:Int, controlled:Bool=false) 
 	{
 		super();
@@ -90,15 +94,24 @@ class Shifter extends GameEntity
 		//_spritemap.centerOrigin();
 		graphic = _spritemap;
 		_spritemap.play("idle");
+		
+		
+		_popupText = new PopupText(this, shifterText(), true);
 	}
 	
 	override public function added():Void 
 	{
 		super.added();
+		HXP.scene.add(_popupText);
 	}
 	
 	override public function update():Void
 	{
+		if (!_controlled && this.collide("Player", x, y) != null)
+		{
+			_popupText.startTextRead();
+		}
+		
 		updateMovement();
 		updateAnimation();
 		
@@ -292,6 +305,21 @@ class Shifter extends GameEntity
 		*/
 	}
 	
+	private function shifterText():Array<String>
+	{
+		return 
+		[
+			"I don't like these new blue people...",
+			"This neighborbood belongs to US, not THOSE BLUES!",
+			"They think they're so great, flying around.",
+			"Those new blues don't deserve to be here!",
+			"The blues keep all the nice stuff for themselves!",
+			"I've been here for 30 years! Why do I have to move?",
+			"We need to get rid of those flying blues!",
+			"Protest the Blues! Protest the Blues!"
+		];
+	}
+	
 	/* Movement Constants */
 	private static var GRAVITY : Float = 0.6;
 	private static var WALL_FRICTION : Float = 1.0;
@@ -311,6 +339,8 @@ class Shifter extends GameEntity
 	private var _AIIdleTimer:Int;
 	private var _AIBehavingTimer:Int;
 	private var _AIBehavior:ShifterBehavior;
+	
+	private var _popupText:PopupText;
 	
 	private var _relativeXVel:Float;
 	private var _relativeYVel:Float;

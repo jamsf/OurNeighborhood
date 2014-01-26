@@ -60,6 +60,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/walker_spritesheet.png", __ASSET__gfx_walker_spritesheet_png);
 		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("music/bus.mp3", __ASSET__music_bus_mp3);
+		type.set ("music/bus.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("music/marbles.mp3", __ASSET__music_marbles_mp3);
+		type.set ("music/marbles.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("music/rent.mp3", __ASSET__music_rent_mp3);
+		type.set ("music/rent.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
 		className.set ("maps/mainroom.tmx", __ASSET__maps_mainroom_tmx);
@@ -94,6 +100,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/walker_spritesheet.png", "gfx/walker_spritesheet.png");
 		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("music/bus.mp3", "music/bus.mp3");
+		type.set ("music/bus.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("music/marbles.mp3", "music/marbles.mp3");
+		type.set ("music/marbles.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("music/rent.mp3", "music/rent.mp3");
+		type.set ("music/rent.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
 		path.set ("maps/mainroom.tmx", "maps/mainroom.tmx");
@@ -555,12 +567,18 @@ class __ASSET__gfx_shifter_spritesheet_png extends flash.display.BitmapData { pu
 class __ASSET__gfx_terrain_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_walker_spritesheet_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__music_bus_mp3 extends flash.media.Sound { }
+class __ASSET__music_marbles_mp3 extends flash.media.Sound { }
+class __ASSET__music_rent_mp3 extends flash.media.Sound { }
 class __ASSET__font_04b_03___ttf extends flash.text.Font { }
 class __ASSET__maps_mainroom_tmx extends flash.utils.ByteArray { }
 class __ASSET__maps_newroom_tmx extends flash.utils.ByteArray { }
 
 
 #elseif html5
+
+
+
 
 
 

@@ -4,6 +4,7 @@ import com.haxepunk.graphics.Image;
 import com.haxepunk.HXP;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import twogames.ui.PopupText;
 
 import extendedhxpunk.ext.EXTMath;
 
@@ -14,6 +15,9 @@ import extendedhxpunk.ext.EXTMath;
 class Flyer extends GameEntity
 {
 
+	public var FlyerText(get, never):PopupText;
+	public function get_FlyerText():PopupText { return _popupText; }
+	
 	public function new(x:Int, y:Int, controlled:Bool = false ) 
 	{
 		super();
@@ -28,17 +32,29 @@ class Flyer extends GameEntity
 			_xVel = Math.random() > 0.5 ? -FLYER_VELOCITY : FLYER_VELOCITY;
 			_yVel = Math.random() > 0.5 ? -FLYER_VELOCITY : FLYER_VELOCITY;
 		}
-		_xMaxVel = FLYER_VELOCITY;
-		_yMaxVel = FLYER_VELOCITY;
+		_xMaxVel = FLYER_VELOCITY + 2;
+		_yMaxVel = FLYER_VELOCITY + 2;
 		_accel = 0.75;
 		_decel = 2;
 		
 		graphic = new Image("gfx/flyer.png");
 		this.setHitbox(64, 64);
+		
+		_popupText = new PopupText(this, flyerText());
+		_popupText.privilegeMod(24);
+	}
+	
+	override public function added():Void 
+	{
+		super.added();
+		HXP.scene.add(_popupText);
 	}
 	
 	override public function update():Void 
 	{
+		if (!_controlled && this.collide("Player", x, y) != null)
+			_popupText.startTextRead();
+		
 		updateMovement();
 		
 		super.update();
@@ -129,6 +145,21 @@ class Flyer extends GameEntity
 			_xVel = -_xVel;
 	}
 	
-	private inline static var FLYER_VELOCITY:Int = 5;
+	private function flyerText():Array<String>
+	{
+		return 
+		[
+			"Wow, this neighborhood is so diverse!",
+			"I love the restaurants down on the bottom!",
+			"Our new home is wonderful!",
+			"I'm glad to call this 'Our Neighborhood'",
+			"We're building so many new things!",
+			"This is the new capital for us Blues!",
+			"Even the sketchy parts of our neighborhood is cool!"
+		];
+	}
 	
+	private inline static var FLYER_VELOCITY:Int = 3;
+	
+	private var _popupText : PopupText;
 }
