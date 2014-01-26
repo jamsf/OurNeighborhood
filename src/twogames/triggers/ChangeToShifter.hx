@@ -37,11 +37,11 @@ class ChangeToShifter extends Entity
 			
 			player.changeToShifter();
 			
-			var popup:PopupText = new PopupText(player, ["Congratulations! You are now Angry."]);
+			var popup:PopupText = new PopupText(player, ["They kicked me out to build these new condos?!"]);
 			HXP.scene.add(popup);
 			popup.startTextRead();
 			
-			MusicController.Instance.bus.stop();
+			MusicController.Instance.stopAll();
 			MusicController.Instance.rent.loop();
 			
 			HXP.scene.remove(this);

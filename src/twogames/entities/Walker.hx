@@ -257,7 +257,9 @@ class Walker extends GameEntity
 				"It's getting so expensive here.",
 				"I can't believe how much this place has changed.",
 				"What a dump...",
-				"Times have been rough."
+				"Times have been rough.",
+				"I can't afford the newly-opened trendy restaurant.",
+				"That new trendy restaurant is too expensive."
 			];
 		}
         

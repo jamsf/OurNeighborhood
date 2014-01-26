@@ -60,7 +60,7 @@ class PopupText extends Entity
 				if (_typingWait == 0)
 				{
 					++_strIndex;
-					_typingWait = 5;
+					_typingWait = 2;
 				}
 				else
 					--_typingWait;

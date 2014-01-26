@@ -4,6 +4,7 @@ import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import extendedhxpunk.ext.EXTConsole;
 import twogames.scenes.MainRoom;
+import twogames.scenes.TitleRoom;
 
 class Main extends Engine
 {
@@ -22,7 +23,7 @@ class Main extends Engine
 		HXP.screen.color = kClearColor;
 		HXP.screen.scale = 1;
 		
-		HXP.scene = new MainRoom();
+		HXP.scene = new TitleRoom();
 	}
 	
 	override public function update():Void

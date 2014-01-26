@@ -316,7 +316,9 @@ class Shifter extends GameEntity
 			"The blues keep all the nice stuff for themselves!",
 			"I've been here for 30 years! Why do I have to move?",
 			"We need to get rid of those flying blues!",
-			"Protest the Blues! Protest the Blues!"
+			"Protest the Blues! Protest the Blues!",
+			"Blues, get your yuppie restaurants out of here!",
+			"That new over-priced restaurant is a disgrace!"
 		];
 	}
 	

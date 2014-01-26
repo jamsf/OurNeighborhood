@@ -13,6 +13,7 @@ import twogames.entities.Shifter;
 import twogames.entities.Walker;
 import twogames.triggers.ChangeToShifter;
 import twogames.MusicController;
+import twogames.ui.FadeIn;
 
 import extendedhxpunk.ext.EXTUtility;
 import extendedhxpunk.ext.EXTScene;
@@ -25,7 +26,7 @@ import extendedhxpunk.ext.EXTOffsetType;
 class MainRoom extends EXTScene
 {
 
-	public function new() 
+	public function new(p:Bool=false) 
 	{
 		super();
 		
@@ -48,8 +49,13 @@ class MainRoom extends EXTScene
 		var startX : Int = 18 * 32;
 		var startY : Int = 54 * 32;
 		
-		var lifechance : Float = Math.random();
-		var privileged : Bool = lifechance >= 0.95 ? true : false;
+		var privileged : Bool = false;
+		if (p) privileged = true;
+		else
+		{
+			var lifechance : Float = Math.random();
+			privileged = lifechance >= 0.95 ? true : false;
+		}
 		
 		addNPCS(privileged);
 		MusicController.Instance.stopAll();
@@ -78,6 +84,9 @@ class MainRoom extends EXTScene
 		
 		//this.worldCamera.zoomWithAnchor( -0.2, EXTUtility.ZERO_POINT, EXTOffsetType.CENTER);
 		this.worldCamera.setCurrentPosition(EXTOffsetType.CENTER, new Point(startX, startY));
+		
+		// Add fade in
+		this.add(new FadeIn());
 	}
 	
 	public function addNPCS(privileged:Bool)
@@ -93,7 +102,7 @@ class MainRoom extends EXTScene
 		// Add Walkers
 		for (j in 20...90)
 		{
-			if (j % 10 == 0)
+			if (j % 15 == 0)
 			{
 				var walker : Walker = new Walker(j * 32, 52 * 32);
 				this.add(walker);
@@ -105,9 +114,9 @@ class MainRoom extends EXTScene
 		// Add Shifters
 		for (k in 20...90)
 		{
-			if (k % 20 == 0 )
+			if (k % 25 == 0 )
 			{
-				var shifter : Shifter = new Shifter(k * 32, 43 * 32);
+				var shifter : Shifter = new Shifter(k * 32, 52 * 32);
 				this.add(shifter);
 				if (privileged)
 					shifter.ShifterText.privilegeMod(8);
@@ -130,6 +139,9 @@ class MainRoom extends EXTScene
 		
 		if (Input.pressed(Key.B))
 			HXP.scene = new MainRoom();
+			
+		if (Input.pressed(Key.P))
+			HXP.scene = new MainRoom(true);
 	}
 	
 	private var _room : TmxEntity;

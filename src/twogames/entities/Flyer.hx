@@ -155,7 +155,7 @@ class Flyer extends GameEntity
 			"I'm glad to call this 'Our Neighborhood'",
 			"We're building so many new things!",
 			"This is the new capital for us Blues!",
-			"Even the sketchy parts of our neighborhood is cool!"
+			"Even the sketchy parts of our neighborhood are cool!"
 		];
 	}
 	

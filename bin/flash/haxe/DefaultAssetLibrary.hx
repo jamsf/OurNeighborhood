@@ -54,10 +54,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/flyer.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/shifter_spritesheet.png", __ASSET__gfx_shifter_spritesheet_png);
 		type.set ("gfx/shifter_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/spr_black.png", __ASSET__gfx_spr_black_png);
+		type.set ("gfx/spr_black.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/terrain_tileset.png", __ASSET__gfx_terrain_tileset_png);
 		type.set ("gfx/terrain_tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/tileset.png", __ASSET__gfx_tileset_png);
 		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/title.png", __ASSET__gfx_title_png);
+		type.set ("gfx/title.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/walker_spritesheet.png", __ASSET__gfx_walker_spritesheet_png);
 		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("music/bus.mp3", __ASSET__music_bus_mp3);
@@ -94,10 +98,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/flyer.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/shifter_spritesheet.png", "gfx/shifter_spritesheet.png");
 		type.set ("gfx/shifter_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/spr_black.png", "gfx/spr_black.png");
+		type.set ("gfx/spr_black.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/terrain_tileset.png", "gfx/terrain_tileset.png");
 		type.set ("gfx/terrain_tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/tileset.png", "gfx/tileset.png");
 		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/title.png", "gfx/title.png");
+		type.set ("gfx/title.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/walker_spritesheet.png", "gfx/walker_spritesheet.png");
 		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("music/bus.mp3", "music/bus.mp3");
@@ -564,8 +572,10 @@ class __ASSET__gfx_debug_console_play_png extends flash.display.BitmapData { pub
 class __ASSET__gfx_debug_console_step_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_flyer_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_shifter_spritesheet_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_spr_black_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_terrain_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_title_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_walker_spritesheet_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__music_bus_mp3 extends flash.media.Sound { }
 class __ASSET__music_marbles_mp3 extends flash.media.Sound { }
@@ -576,6 +586,8 @@ class __ASSET__maps_newroom_tmx extends flash.utils.ByteArray { }
 
 
 #elseif html5
+
+
 
 
 
