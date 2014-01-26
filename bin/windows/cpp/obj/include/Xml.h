@@ -38,14 +38,26 @@ class HXCPP_CLASS_ATTRIBUTES  Xml_obj : public hx::Object{
 		virtual ::Xml firstElement( );
 		Dynamic firstElement_dyn();
 
+		virtual Dynamic elementsNamed( ::String name);
+		Dynamic elementsNamed_dyn();
+
 		virtual Dynamic elements( );
 		Dynamic elements_dyn();
+
+		virtual Dynamic iterator( );
+		Dynamic iterator_dyn();
 
 		virtual bool exists( ::String att);
 		Dynamic exists_dyn();
 
 		virtual ::String get( ::String att);
 		Dynamic get_dyn();
+
+		virtual ::String get_nodeValue( );
+		Dynamic get_nodeValue_dyn();
+
+		virtual ::String get_nodeName( );
+		Dynamic get_nodeName_dyn();
 
 		::XmlType nodeType;
 		::Xml _parent;

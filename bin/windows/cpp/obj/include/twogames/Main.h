@@ -7,7 +7,6 @@
 
 #include <com/haxepunk/Engine.h>
 HX_DECLARE_CLASS2(com,haxepunk,Engine)
-HX_DECLARE_CLASS2(com,haxepunk,RenderMode)
 HX_DECLARE_CLASS2(flash,display,DisplayObject)
 HX_DECLARE_CLASS2(flash,display,DisplayObjectContainer)
 HX_DECLARE_CLASS2(flash,display,IBitmapDrawable)
@@ -24,10 +23,10 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::com::haxepunk::Engine_obj{
 		typedef ::com::haxepunk::Engine_obj super;
 		typedef Main_obj OBJ_;
 		Main_obj();
-		Void __construct(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode);
+		Void __construct();
 
 	public:
-		static hx::ObjectPtr< Main_obj > __new(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode);
+		static hx::ObjectPtr< Main_obj > __new();
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(hx::DynamicArray inArgs);
 		~Main_obj();
@@ -39,8 +38,12 @@ class HXCPP_CLASS_ATTRIBUTES  Main_obj : public ::com::haxepunk::Engine_obj{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Main"); }
 
+		virtual Void update( );
+
 		virtual Void init( );
 
+		static int kClearColor;
+		static ::String kProjectName;
 		static Void main( );
 		static Dynamic main_dyn();
 

@@ -6,6 +6,7 @@
 #endif
 
 HX_DECLARE_CLASS0(Lambda)
+HX_DECLARE_CLASS0(List)
 
 
 class HXCPP_CLASS_ATTRIBUTES  Lambda_obj : public hx::Object{
@@ -27,6 +28,12 @@ class HXCPP_CLASS_ATTRIBUTES  Lambda_obj : public hx::Object{
 		void __Mark(HX_MARK_PARAMS);
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Lambda"); }
+
+		static ::List map( Dynamic it,Dynamic f);
+		static Dynamic map_dyn();
+
+		static bool has( Dynamic it,Dynamic elt);
+		static Dynamic has_dyn();
 
 		static int count( Dynamic it,Dynamic pred);
 		static Dynamic count_dyn();

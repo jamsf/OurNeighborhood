@@ -12,14 +12,17 @@
 #ifndef INCLUDED_com_haxepunk_Scene
 #include <com/haxepunk/Scene.h>
 #endif
+#ifndef INCLUDED_com_haxepunk_Screen
+#include <com/haxepunk/Screen.h>
+#endif
 #ifndef INCLUDED_com_haxepunk_Tweener
 #include <com/haxepunk/Tweener.h>
 #endif
-#ifndef INCLUDED_com_haxepunk_debug_Console
-#include <com/haxepunk/debug/Console.h>
+#ifndef INCLUDED_extendedhxpunk_ext_EXTConsole
+#include <extendedhxpunk/ext/EXTConsole.h>
 #endif
-#ifndef INCLUDED_com_haxepunk_debug_TraceCapture
-#include <com/haxepunk/debug/TraceCapture.h>
+#ifndef INCLUDED_extendedhxpunk_ext_EXTScene
+#include <extendedhxpunk/ext/EXTScene.h>
 #endif
 #ifndef INCLUDED_flash_display_DisplayObject
 #include <flash/display/DisplayObject.h>
@@ -45,17 +48,17 @@
 #ifndef INCLUDED_twogames_Main
 #include <twogames/Main.h>
 #endif
-#ifndef INCLUDED_twogames_MainScene
-#include <twogames/MainScene.h>
+#ifndef INCLUDED_twogames_scenes_MainRoom
+#include <twogames/scenes/MainRoom.h>
 #endif
 namespace twogames{
 
-Void Main_obj::__construct(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode)
+Void Main_obj::__construct()
 {
-HX_STACK_PUSH("Main::new","twogames/Main.hx",5);
+HX_STACK_PUSH("Main::new","twogames/Main.hx",15);
 {
-	HX_STACK_LINE(5)
-	super::__construct(width,height,frameRate,fixed,renderMode);
+	HX_STACK_LINE(15)
+	super::__construct((int)640,(int)380,(int)60,false,null());
 }
 ;
 	return null();
@@ -64,49 +67,55 @@ HX_STACK_PUSH("Main::new","twogames/Main.hx",5);
 Main_obj::~Main_obj() { }
 
 Dynamic Main_obj::__CreateEmpty() { return  new Main_obj; }
-hx::ObjectPtr< Main_obj > Main_obj::__new(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode)
+hx::ObjectPtr< Main_obj > Main_obj::__new()
 {  hx::ObjectPtr< Main_obj > result = new Main_obj();
-	result->__construct(width,height,frameRate,fixed,renderMode);
+	result->__construct();
 	return result;}
 
 Dynamic Main_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< Main_obj > result = new Main_obj();
-	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3],inArgs[4]);
+	result->__construct();
 	return result;}
 
-Void Main_obj::init( ){
+Void Main_obj::update( ){
 {
-		HX_STACK_PUSH("Main::init","twogames/Main.hx",9);
+		HX_STACK_PUSH("Main::update","twogames/Main.hx",29);
 		HX_STACK_THIS(this);
-		struct _Function_1_1{
-			inline static ::com::haxepunk::debug::Console Block( ){
-				HX_STACK_PUSH("*::closure","twogames/Main.hx",11);
-				{
-					HX_STACK_LINE(11)
-					if (((::com::haxepunk::HXP_obj::_console == null()))){
-						HX_STACK_LINE(11)
-						::com::haxepunk::HXP_obj::_console = ::com::haxepunk::debug::Console_obj::__new();
-					}
-					HX_STACK_LINE(11)
-					return ::com::haxepunk::HXP_obj::_console;
-				}
-				return null();
-			}
-		};
-		HX_STACK_LINE(11)
-		(_Function_1_1::Block())->enable(null(),null());
-		HX_STACK_LINE(13)
-		::com::haxepunk::HXP_obj::set_scene(::twogames::MainScene_obj::__new());
+		HX_STACK_LINE(30)
+		this->super::update();
+		HX_STACK_LINE(32)
+		::extendedhxpunk::ext::EXTConsole_obj::update();
 	}
 return null();
 }
 
 
+Void Main_obj::init( ){
+{
+		HX_STACK_PUSH("Main::init","twogames/Main.hx",20);
+		HX_STACK_THIS(this);
+		HX_STACK_LINE(21)
+		::extendedhxpunk::ext::EXTConsole_obj::initializeConsole();
+		HX_STACK_LINE(22)
+		::com::haxepunk::HXP_obj::screen->set_color((int)0);
+		HX_STACK_LINE(23)
+		::com::haxepunk::HXP_obj::screen->set_scale((int)1);
+		HX_STACK_LINE(25)
+		::com::haxepunk::HXP_obj::set_scene(::twogames::scenes::MainRoom_obj::__new());
+	}
+return null();
+}
+
+
+int Main_obj::kClearColor;
+
+::String Main_obj::kProjectName;
+
 Void Main_obj::main( ){
 {
-		HX_STACK_PUSH("Main::main","twogames/Main.hx",16);
-		HX_STACK_LINE(16)
-		::twogames::Main_obj::__new(null(),null(),null(),null(),null());
+		HX_STACK_PUSH("Main::main","twogames/Main.hx",37);
+		HX_STACK_LINE(37)
+		::twogames::Main app = ::twogames::Main_obj::__new();		HX_STACK_VAR(app,"app");
 	}
 return null();
 }
@@ -137,6 +146,9 @@ Dynamic Main_obj::__Field(const ::String &inName,bool inCallProp)
 	case 4:
 		if (HX_FIELD_EQ(inName,"main") ) { return main_dyn(); }
 		if (HX_FIELD_EQ(inName,"init") ) { return init_dyn(); }
+		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"update") ) { return update_dyn(); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -152,19 +164,26 @@ void Main_obj::__GetFields(Array< ::String> &outFields)
 };
 
 static ::String sStaticFields[] = {
+	HX_CSTRING("kClearColor"),
+	HX_CSTRING("kProjectName"),
 	HX_CSTRING("main"),
 	String(null()) };
 
 static ::String sMemberFields[] = {
+	HX_CSTRING("update"),
 	HX_CSTRING("init"),
 	String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {
 	HX_MARK_MEMBER_NAME(Main_obj::__mClass,"__mClass");
+	HX_MARK_MEMBER_NAME(Main_obj::kClearColor,"kClearColor");
+	HX_MARK_MEMBER_NAME(Main_obj::kProjectName,"kProjectName");
 };
 
 static void sVisitStatics(HX_VISIT_PARAMS) {
 	HX_VISIT_MEMBER_NAME(Main_obj::__mClass,"__mClass");
+	HX_VISIT_MEMBER_NAME(Main_obj::kClearColor,"kClearColor");
+	HX_VISIT_MEMBER_NAME(Main_obj::kProjectName,"kProjectName");
 };
 
 Class Main_obj::__mClass;
@@ -178,6 +197,8 @@ void Main_obj::__register()
 
 void Main_obj::__boot()
 {
+	kClearColor= (int)0;
+	kProjectName= HX_CSTRING("GGJ");
 }
 
 } // end namespace twogames

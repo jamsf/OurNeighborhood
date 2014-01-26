@@ -176,7 +176,7 @@ Void ApplicationMain_obj::main( ){
 		HX_END_LOCAL_FUNC0((void))
 
 		HX_STACK_LINE(35)
-		::flash::Lib_obj::create( Dynamic(new _Function_1_1()),(int)640,(int)480,(int)30,(int)3355443,(int((int((int((int((int((int((int((int((int((int(::flash::Lib_obj::HARDWARE) | int(::flash::Lib_obj::ALLOW_SHADERS))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::flash::Lib_obj::RESIZABLE))) | int((int)0))) | int(::flash::Lib_obj::VSYNC))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("TwoGames"),null(),null());
+		::flash::Lib_obj::create( Dynamic(new _Function_1_1()),(int)1280,(int)800,(int)30,(int)3355443,(int((int((int((int((int((int((int((int((int((int(::flash::Lib_obj::HARDWARE) | int(::flash::Lib_obj::ALLOW_SHADERS))) | int((int)0))) | int((int)0))) | int((int)0))) | int(::flash::Lib_obj::RESIZABLE))) | int((int)0))) | int(::flash::Lib_obj::VSYNC))) | int((int)0))) | int((int)0))) | int((int)0)),HX_CSTRING("TwoGames"),null(),null());
 	}
 return null();
 }

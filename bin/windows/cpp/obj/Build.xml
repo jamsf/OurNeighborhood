@@ -1,10 +1,85 @@
 <xml>
 <files id="haxe">
 <compilerflag value="-Iinclude"/>
-  <file name="src/twogames/MainScene.cpp">
+  <file name="src/twogames/scenes/MainRoom.cpp">
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
    <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
    <depend name="include/com/haxepunk/Tweener.h"/>
-   <depend name="include/twogames/MainScene.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxEntity.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTCamera.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTScene.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/twogames/entities/Flyer.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+   <depend name="include/twogames/entities/Player.h"/>
+   <depend name="include/twogames/entities/Walker.h"/>
+   <depend name="include/twogames/scenes/MainRoom.h"/>
+  </file>
+  <file name="src/twogames/entities/Walker.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Animation.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Spritemap.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
+   <depend name="include/com/haxepunk/utils/Joystick.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTMath.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/twogames/entities/ActorFacing.h"/>
+   <depend name="include/twogames/entities/ActorPosition.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+   <depend name="include/twogames/entities/Walker.h"/>
+   <depend name="include/twogames/entities/WalkerBehavior.h"/>
+  </file>
+  <file name="src/twogames/entities/ActorPosition.cpp">
+   <depend name="include/twogames/entities/ActorPosition.h"/>
+  </file>
+  <file name="src/twogames/entities/WalkerBehavior.cpp">
+   <depend name="include/twogames/entities/WalkerBehavior.h"/>
+  </file>
+  <file name="src/twogames/entities/ActorFacing.cpp">
+   <depend name="include/twogames/entities/ActorFacing.h"/>
+  </file>
+  <file name="src/twogames/entities/Player.cpp">
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+   <depend name="include/twogames/entities/Player.h"/>
+  </file>
+  <file name="src/twogames/entities/Flyer.cpp">
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTMath.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/twogames/entities/Flyer.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+  </file>
+  <file name="src/twogames/entities/GameEntity.cpp">
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/twogames/entities/GameEntity.h"/>
+  </file>
+  <file name="src/twogames/GGJConstants.cpp">
+   <depend name="include/twogames/GGJConstants.h"/>
   </file>
   <file name="src/sys/io/FileOutput.cpp">
    <depend name="include/cpp/Lib.h"/>
@@ -181,6 +256,44 @@
    <depend name="include/IMap.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
    <depend name="include/openfl/AssetCache.h"/>
+  </file>
+  <file name="src/haxe/xml/Fast.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/StringTools.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/XmlType.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasNodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+  </file>
+  <file name="src/haxe/xml/_Fast/NodeListAccess.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+  </file>
+  <file name="src/haxe/xml/_Fast/HasNodeAccess.cpp">
+   <depend name="include/Xml.h"/>
+   <depend name="include/haxe/xml/_Fast/HasNodeAccess.h"/>
+  </file>
+  <file name="src/haxe/xml/_Fast/HasAttribAccess.cpp">
+   <depend name="include/Xml.h"/>
+   <depend name="include/XmlType.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+  </file>
+  <file name="src/haxe/xml/_Fast/AttribAccess.cpp">
+   <depend name="include/Xml.h"/>
+   <depend name="include/XmlType.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+  </file>
+  <file name="src/haxe/xml/_Fast/NodeAccess.cpp">
+   <depend name="include/Xml.h"/>
+   <depend name="include/XmlType.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeAccess.h"/>
   </file>
   <file name="src/haxe/io/Path.cpp">
    <depend name="include/haxe/io/Path.h"/>
@@ -821,6 +934,99 @@
    <depend name="include/haxe/io/Bytes.h"/>
    <depend name="include/openfl/utils/IMemoryRange.h"/>
   </file>
+  <file name="src/extendedhxpunk/ui/UIViewController.cpp">
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTCamera.h"/>
+   <depend name="include/extendedhxpunk/ui/UIView.h"/>
+   <depend name="include/extendedhxpunk/ui/UIViewController.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ui/UIView.cpp">
+   <depend name="include/Lambda.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Canvas.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTColor.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTUtility.h"/>
+   <depend name="include/extendedhxpunk/ui/UIView.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/DisplayObject.h"/>
+   <depend name="include/flash/display/DisplayObjectContainer.h"/>
+   <depend name="include/flash/display/Graphics.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/display/InteractiveObject.h"/>
+   <depend name="include/flash/display/Sprite.h"/>
+   <depend name="include/flash/events/EventDispatcher.h"/>
+   <depend name="include/flash/events/IEventDispatcher.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTUtility.cpp">
+   <depend name="include/extendedhxpunk/ext/EXTConsole.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTUtility.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTScene.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Canvas.h"/>
+   <depend name="include/com/haxepunk/graphics/Graphiclist.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Tilemap.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTCamera.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTScene.h"/>
+   <depend name="include/extendedhxpunk/ui/UIViewController.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/haxe/ds/ObjectMap.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTOffsetType.cpp">
+   <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTMath.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTConsole.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTMath.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTKey.cpp">
+   <depend name="include/com/haxepunk/utils/Key.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTKey.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTConsole.cpp">
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/debug/Console.h"/>
+   <depend name="include/com/haxepunk/debug/TraceCapture.h"/>
+   <depend name="include/com/haxepunk/utils/Input.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTConsole.h"/>
+   <depend name="include/haxe/Log.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTColor.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTColor.h"/>
+  </file>
+  <file name="src/extendedhxpunk/ext/EXTCamera.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTCamera.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTConsole.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTOffsetType.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTUtility.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+  </file>
   <file name="src/cpp/zip/Uncompress.cpp">
    <depend name="include/cpp/Lib.h"/>
    <depend name="include/cpp/zip/Flush.h"/>
@@ -958,6 +1164,146 @@
    <depend name="include/flash/events/Event.h"/>
    <depend name="include/flash/events/EventPhase.h"/>
   </file>
+  <file name="src/com/haxepunk/tmx/TmxTileSet.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxTileSet.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/flash/utils/ByteArray.h"/>
+   <depend name="include/flash/utils/IDataInput.h"/>
+   <depend name="include/flash/utils/IDataOutput.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+   <depend name="include/openfl/utils/IMemoryRange.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxPropertySet.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxOrderedHash.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/Lambda.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxOrderedHash.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxObjectGroup.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxMap.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObject.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObjectGroup.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxObject.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/masks/Circle.h"/>
+   <depend name="include/com/haxepunk/masks/Hitbox.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxMap.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObject.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObjectGroup.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxTileSet.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasNodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxMap.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxLayer.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxMap.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObjectGroup.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxOrderedHash.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxTileSet.h"/>
+   <depend name="include/flash/utils/ByteArray.h"/>
+   <depend name="include/flash/utils/IDataInput.h"/>
+   <depend name="include/flash/utils/IDataOutput.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+   <depend name="include/openfl/Assets.h"/>
+   <depend name="include/openfl/utils/IMemoryRange.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxLayer.cpp">
+   <depend name="include/List.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxLayer.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxMap.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxPropertySet.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxTileSet.h"/>
+   <depend name="include/flash/utils/ByteArray.h"/>
+   <depend name="include/flash/utils/CompressionAlgorithm.h"/>
+   <depend name="include/flash/utils/IDataInput.h"/>
+   <depend name="include/flash/utils/IDataOutput.h"/>
+   <depend name="include/haxe/io/Bytes.h"/>
+   <depend name="include/haxe/xml/Fast.h"/>
+   <depend name="include/haxe/xml/_Fast/AttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/HasAttribAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeAccess.h"/>
+   <depend name="include/haxe/xml/_Fast/NodeListAccess.h"/>
+   <depend name="include/openfl/utils/IMemoryRange.h"/>
+  </file>
+  <file name="src/com/haxepunk/tmx/TmxEntity.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/Lambda.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/Xml.h"/>
+   <depend name="include/com/haxepunk/Entity.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/Mask.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Canvas.h"/>
+   <depend name="include/com/haxepunk/graphics/Graphiclist.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Tilemap.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Atlas.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/TileAtlas.h"/>
+   <depend name="include/com/haxepunk/masks/Grid.h"/>
+   <depend name="include/com/haxepunk/masks/Hitbox.h"/>
+   <depend name="include/com/haxepunk/masks/Masklist.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxEntity.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxLayer.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxMap.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObject.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxObjectGroup.h"/>
+   <depend name="include/com/haxepunk/tmx/TmxOrderedHash.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/haxe/Log.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
+   <depend name="include/openfl/Assets.h"/>
+  </file>
   <file name="src/com/haxepunk/masks/SlopedGrid.cpp">
    <depend name="include/IMap.h"/>
    <depend name="include/Std.h"/>
@@ -1081,6 +1427,16 @@
    <depend name="include/flash/geom/Point.h"/>
    <depend name="include/haxe/ds/StringMap.h"/>
   </file>
+  <file name="src/com/haxepunk/graphics/atlas/TileAtlas.cpp">
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Atlas.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/AtlasData.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/AtlasRegion.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/TileAtlas.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/openfl/display/Tilesheet.h"/>
+  </file>
   <file name="src/com/haxepunk/graphics/atlas/TextureAtlas.cpp">
    <depend name="include/IMap.h"/>
    <depend name="include/Std.h"/>
@@ -1167,6 +1523,35 @@
    <depend name="include/haxe/ds/IntMap.h"/>
    <depend name="include/openfl/display/Tilesheet.h"/>
   </file>
+  <file name="src/com/haxepunk/graphics/Tilemap.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/RenderMode.h"/>
+   <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
+   <depend name="include/com/haxepunk/Tweener.h"/>
+   <depend name="include/com/haxepunk/graphics/Canvas.h"/>
+   <depend name="include/com/haxepunk/graphics/Tilemap.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Atlas.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/AtlasData.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Layer.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/TileAtlas.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/DisplayObject.h"/>
+   <depend name="include/flash/display/DisplayObjectContainer.h"/>
+   <depend name="include/flash/display/Graphics.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/display/InteractiveObject.h"/>
+   <depend name="include/flash/display/Sprite.h"/>
+   <depend name="include/flash/events/EventDispatcher.h"/>
+   <depend name="include/flash/events/IEventDispatcher.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/haxe/ds/IntMap.h"/>
+   <depend name="include/openfl/display/Tilesheet.h"/>
+  </file>
   <file name="src/com/haxepunk/graphics/Text.cpp">
    <depend name="include/Std.h"/>
    <depend name="include/com/haxepunk/Entity.h"/>
@@ -1198,6 +1583,23 @@
    <depend name="include/flash/text/TextFormat.h"/>
    <depend name="include/flash/text/TextFormatAlign.h"/>
    <depend name="include/openfl/Assets.h"/>
+  </file>
+  <file name="src/com/haxepunk/graphics/Spritemap.cpp">
+   <depend name="include/IMap.h"/>
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/RenderMode.h"/>
+   <depend name="include/com/haxepunk/graphics/Animation.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Spritemap.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/Atlas.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/AtlasRegion.h"/>
+   <depend name="include/com/haxepunk/graphics/atlas/TileAtlas.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+   <depend name="include/haxe/ds/StringMap.h"/>
   </file>
   <file name="src/com/haxepunk/graphics/Image.cpp">
    <depend name="include/IMap.h"/>
@@ -1244,6 +1646,33 @@
    <depend name="include/flash/display/BitmapData.h"/>
    <depend name="include/flash/display/IBitmapDrawable.h"/>
    <depend name="include/flash/geom/Point.h"/>
+  </file>
+  <file name="src/com/haxepunk/graphics/Canvas.cpp">
+   <depend name="include/Std.h"/>
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/HXP.h"/>
+   <depend name="include/com/haxepunk/RenderMode.h"/>
+   <depend name="include/com/haxepunk/graphics/Canvas.h"/>
+   <depend name="include/flash/display/BitmapData.h"/>
+   <depend name="include/flash/display/BlendMode.h"/>
+   <depend name="include/flash/display/DisplayObject.h"/>
+   <depend name="include/flash/display/DisplayObjectContainer.h"/>
+   <depend name="include/flash/display/Graphics.h"/>
+   <depend name="include/flash/display/IBitmapDrawable.h"/>
+   <depend name="include/flash/display/InteractiveObject.h"/>
+   <depend name="include/flash/display/Sprite.h"/>
+   <depend name="include/flash/events/EventDispatcher.h"/>
+   <depend name="include/flash/events/IEventDispatcher.h"/>
+   <depend name="include/flash/geom/ColorTransform.h"/>
+   <depend name="include/flash/geom/Matrix.h"/>
+   <depend name="include/flash/geom/Point.h"/>
+   <depend name="include/flash/geom/Rectangle.h"/>
+  </file>
+  <file name="src/com/haxepunk/graphics/Animation.cpp">
+   <depend name="include/com/haxepunk/Graphic.h"/>
+   <depend name="include/com/haxepunk/graphics/Animation.h"/>
+   <depend name="include/com/haxepunk/graphics/Image.h"/>
+   <depend name="include/com/haxepunk/graphics/Spritemap.h"/>
   </file>
   <file name="src/com/haxepunk/debug/LayerList.cpp">
    <depend name="include/Std.h"/>
@@ -1540,9 +1969,11 @@
   </file>
   <file name="src/List.cpp">
    <depend name="include/List.h"/>
+   <depend name="include/StringBuf.h"/>
   </file>
   <file name="src/Lambda.cpp">
    <depend name="include/Lambda.h"/>
+   <depend name="include/List.h"/>
   </file>
   <file name="src/DefaultAssetLibrary.cpp">
    <depend name="include/DefaultAssetLibrary.h"/>
@@ -1596,7 +2027,6 @@
   <file name="src/DocumentClass.cpp">
    <depend name="include/DocumentClass.h"/>
    <depend name="include/com/haxepunk/Engine.h"/>
-   <depend name="include/com/haxepunk/RenderMode.h"/>
    <depend name="include/flash/Lib.h"/>
    <depend name="include/flash/display/DisplayObject.h"/>
    <depend name="include/flash/display/DisplayObjectContainer.h"/>
@@ -1614,9 +2044,10 @@
    <depend name="include/com/haxepunk/HXP.h"/>
    <depend name="include/com/haxepunk/RenderMode.h"/>
    <depend name="include/com/haxepunk/Scene.h"/>
+   <depend name="include/com/haxepunk/Screen.h"/>
    <depend name="include/com/haxepunk/Tweener.h"/>
-   <depend name="include/com/haxepunk/debug/Console.h"/>
-   <depend name="include/com/haxepunk/debug/TraceCapture.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTConsole.h"/>
+   <depend name="include/extendedhxpunk/ext/EXTScene.h"/>
    <depend name="include/flash/display/DisplayObject.h"/>
    <depend name="include/flash/display/DisplayObjectContainer.h"/>
    <depend name="include/flash/display/IBitmapDrawable.h"/>
@@ -1625,7 +2056,7 @@
    <depend name="include/flash/events/EventDispatcher.h"/>
    <depend name="include/flash/events/IEventDispatcher.h"/>
    <depend name="include/twogames/Main.h"/>
-   <depend name="include/twogames/MainScene.h"/>
+   <depend name="include/twogames/scenes/MainRoom.h"/>
   </file>
   <file name="src/com/haxepunk/Engine.cpp">
    <depend name="include/Lambda.h"/>

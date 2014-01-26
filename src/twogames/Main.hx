@@ -3,11 +3,12 @@ package twogames;
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
 import extendedhxpunk.ext.EXTConsole;
+import twogames.scenes.MainRoom;
 
 class Main extends Engine
 {
 
-	public static inline var kClearColor:Int = 0xff7777;
+	public static inline var kClearColor:Int = 0x000000;
 	public static inline var kProjectName:String = "GGJ";
 
 	function new()
@@ -21,14 +22,12 @@ class Main extends Engine
 		HXP.screen.color = kClearColor;
 		HXP.screen.scale = 1;
 		
-		HXP.scene = new MainScene();
-		// JVSceneManager.sharedInstance().goToMainMenuScene();
+		HXP.scene = new MainRoom();
 	}
 	
 	override public function update():Void
 	{
 		super.update();
-		// JVSceneManager.sharedInstance().update();
 #if debug
 		EXTConsole.update();
 #end

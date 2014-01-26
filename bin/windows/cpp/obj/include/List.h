@@ -28,6 +28,9 @@ class HXCPP_CLASS_ATTRIBUTES  List_obj : public hx::Object{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("List"); }
 
+		virtual ::String join( ::String sep);
+		Dynamic join_dyn();
+
 		virtual Dynamic iterator( );
 		Dynamic iterator_dyn();
 

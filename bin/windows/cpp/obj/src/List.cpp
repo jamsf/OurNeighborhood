@@ -3,6 +3,9 @@
 #ifndef INCLUDED_List
 #include <List.h>
 #endif
+#ifndef INCLUDED_StringBuf
+#include <StringBuf.h>
+#endif
 
 Void List_obj::__construct()
 {
@@ -27,6 +30,39 @@ Dynamic List_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< List_obj > result = new List_obj();
 	result->__construct();
 	return result;}
+
+::String List_obj::join( ::String sep){
+	HX_STACK_PUSH("List::join","C:\\HaxeToolkit\\haxe/std/List.hx",224);
+	HX_STACK_THIS(this);
+	HX_STACK_ARG(sep,"sep");
+	HX_STACK_LINE(225)
+	::StringBuf s = ::StringBuf_obj::__new();		HX_STACK_VAR(s,"s");
+	HX_STACK_LINE(226)
+	bool first = true;		HX_STACK_VAR(first,"first");
+	HX_STACK_LINE(227)
+	Dynamic l = this->h;		HX_STACK_VAR(l,"l");
+	HX_STACK_LINE(228)
+	while(((l != null()))){
+		HX_STACK_LINE(229)
+		if ((first)){
+			HX_STACK_LINE(230)
+			first = false;
+		}
+		else{
+			HX_STACK_LINE(232)
+			s->add(sep);
+		}
+		HX_STACK_LINE(233)
+		s->add(l->__GetItem((int)0));
+		HX_STACK_LINE(234)
+		l = l->__GetItem((int)1);
+	}
+	HX_STACK_LINE(236)
+	return s->b->join(HX_CSTRING(""));
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC1(List_obj,join,return )
 
 Dynamic List_obj::iterator( ){
 	HX_STACK_PUSH("List::iterator","C:\\HaxeToolkit\\haxe/std/List.hx",161);
@@ -221,6 +257,7 @@ Dynamic List_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"add") ) { return add_dyn(); }
 		break;
 	case 4:
+		if (HX_FIELD_EQ(inName,"join") ) { return join_dyn(); }
 		if (HX_FIELD_EQ(inName,"push") ) { return push_dyn(); }
 		break;
 	case 6:
@@ -261,6 +298,7 @@ static ::String sStaticFields[] = {
 	String(null()) };
 
 static ::String sMemberFields[] = {
+	HX_CSTRING("join"),
 	HX_CSTRING("iterator"),
 	HX_CSTRING("remove"),
 	HX_CSTRING("isEmpty"),

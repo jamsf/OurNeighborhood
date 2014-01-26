@@ -1,6 +1,14 @@
 #include <hxcpp.h>
 
-#include <twogames/MainScene.h>
+#include <twogames/scenes/MainRoom.h>
+#include <twogames/entities/Walker.h>
+#include <twogames/entities/ActorPosition.h>
+#include <twogames/entities/WalkerBehavior.h>
+#include <twogames/entities/ActorFacing.h>
+#include <twogames/entities/Player.h>
+#include <twogames/entities/Flyer.h>
+#include <twogames/entities/GameEntity.h>
+#include <twogames/GGJConstants.h>
 #include <sys/io/FileOutput.h>
 #include <openfl/utils/WeakRef.h>
 #include <openfl/utils/Float32Array.h>
@@ -23,6 +31,12 @@
 #include <openfl/AssetData.h>
 #include <openfl/Assets.h>
 #include <openfl/AssetCache.h>
+#include <haxe/xml/Fast.h>
+#include <haxe/xml/_Fast/NodeListAccess.h>
+#include <haxe/xml/_Fast/HasNodeAccess.h>
+#include <haxe/xml/_Fast/HasAttribAccess.h>
+#include <haxe/xml/_Fast/AttribAccess.h>
+#include <haxe/xml/_Fast/NodeAccess.h>
 #include <haxe/io/Path.h>
 #include <haxe/io/Error.h>
 #include <haxe/io/Eof.h>
@@ -121,6 +135,16 @@
 #include <flash/display/Bitmap.h>
 #include <flash/_Vector/Vector_Impl_.h>
 #include <flash/Memory.h>
+#include <extendedhxpunk/ui/UIViewController.h>
+#include <extendedhxpunk/ui/UIView.h>
+#include <extendedhxpunk/ext/EXTUtility.h>
+#include <extendedhxpunk/ext/EXTScene.h>
+#include <extendedhxpunk/ext/EXTOffsetType.h>
+#include <extendedhxpunk/ext/EXTMath.h>
+#include <extendedhxpunk/ext/EXTKey.h>
+#include <extendedhxpunk/ext/EXTConsole.h>
+#include <extendedhxpunk/ext/EXTColor.h>
+#include <extendedhxpunk/ext/EXTCamera.h>
 #include <cpp/zip/Uncompress.h>
 #include <cpp/zip/Flush.h>
 #include <cpp/zip/Compress.h>
@@ -140,6 +164,14 @@
 #include <com/haxepunk/tweens/misc/Alarm.h>
 #include <com/haxepunk/tweens/TweenEvent.h>
 #include <flash/events/Event.h>
+#include <com/haxepunk/tmx/TmxTileSet.h>
+#include <com/haxepunk/tmx/TmxPropertySet.h>
+#include <com/haxepunk/tmx/TmxOrderedHash.h>
+#include <com/haxepunk/tmx/TmxObjectGroup.h>
+#include <com/haxepunk/tmx/TmxObject.h>
+#include <com/haxepunk/tmx/TmxMap.h>
+#include <com/haxepunk/tmx/TmxLayer.h>
+#include <com/haxepunk/tmx/TmxEntity.h>
 #include <com/haxepunk/masks/SlopedGrid.h>
 #include <com/haxepunk/masks/TileType.h>
 #include <com/haxepunk/masks/Polygon.h>
@@ -150,14 +182,19 @@
 #include <com/haxepunk/masks/Grid.h>
 #include <com/haxepunk/masks/Circle.h>
 #include <com/haxepunk/masks/Hitbox.h>
+#include <com/haxepunk/graphics/atlas/TileAtlas.h>
 #include <com/haxepunk/graphics/atlas/TextureAtlas.h>
 #include <com/haxepunk/graphics/atlas/AtlasRegion.h>
 #include <com/haxepunk/graphics/atlas/AtlasData.h>
 #include <com/haxepunk/graphics/atlas/Layer.h>
 #include <com/haxepunk/graphics/atlas/Atlas.h>
+#include <com/haxepunk/graphics/Tilemap.h>
 #include <com/haxepunk/graphics/Text.h>
+#include <com/haxepunk/graphics/Spritemap.h>
 #include <com/haxepunk/graphics/Image.h>
 #include <com/haxepunk/graphics/Graphiclist.h>
+#include <com/haxepunk/graphics/Canvas.h>
+#include <com/haxepunk/graphics/Animation.h>
 #include <com/haxepunk/debug/LayerList.h>
 #include <com/haxepunk/debug/Label.h>
 #include <flash/text/TextField.h>
@@ -215,7 +252,15 @@
 void __boot_all()
 {
 hx::RegisterResources( hx::GetResources() );
-::twogames::MainScene_obj::__register();
+::twogames::scenes::MainRoom_obj::__register();
+::twogames::entities::Walker_obj::__register();
+::twogames::entities::ActorPosition_obj::__register();
+::twogames::entities::WalkerBehavior_obj::__register();
+::twogames::entities::ActorFacing_obj::__register();
+::twogames::entities::Player_obj::__register();
+::twogames::entities::Flyer_obj::__register();
+::twogames::entities::GameEntity_obj::__register();
+::twogames::GGJConstants_obj::__register();
 ::sys::io::FileOutput_obj::__register();
 ::openfl::utils::WeakRef_obj::__register();
 ::openfl::utils::Float32Array_obj::__register();
@@ -238,6 +283,12 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::AssetData_obj::__register();
 ::openfl::Assets_obj::__register();
 ::openfl::AssetCache_obj::__register();
+::haxe::xml::Fast_obj::__register();
+::haxe::xml::_Fast::NodeListAccess_obj::__register();
+::haxe::xml::_Fast::HasNodeAccess_obj::__register();
+::haxe::xml::_Fast::HasAttribAccess_obj::__register();
+::haxe::xml::_Fast::AttribAccess_obj::__register();
+::haxe::xml::_Fast::NodeAccess_obj::__register();
 ::haxe::io::Path_obj::__register();
 ::haxe::io::Error_obj::__register();
 ::haxe::io::Eof_obj::__register();
@@ -336,6 +387,16 @@ hx::RegisterResources( hx::GetResources() );
 ::flash::display::Bitmap_obj::__register();
 ::flash::_Vector::Vector_Impl__obj::__register();
 ::flash::Memory_obj::__register();
+::extendedhxpunk::ui::UIViewController_obj::__register();
+::extendedhxpunk::ui::UIView_obj::__register();
+::extendedhxpunk::ext::EXTUtility_obj::__register();
+::extendedhxpunk::ext::EXTScene_obj::__register();
+::extendedhxpunk::ext::EXTOffsetType_obj::__register();
+::extendedhxpunk::ext::EXTMath_obj::__register();
+::extendedhxpunk::ext::EXTKey_obj::__register();
+::extendedhxpunk::ext::EXTConsole_obj::__register();
+::extendedhxpunk::ext::EXTColor_obj::__register();
+::extendedhxpunk::ext::EXTCamera_obj::__register();
 ::cpp::zip::Uncompress_obj::__register();
 ::cpp::zip::Flush_obj::__register();
 ::cpp::zip::Compress_obj::__register();
@@ -355,6 +416,14 @@ hx::RegisterResources( hx::GetResources() );
 ::com::haxepunk::tweens::misc::Alarm_obj::__register();
 ::com::haxepunk::tweens::TweenEvent_obj::__register();
 ::flash::events::Event_obj::__register();
+::com::haxepunk::tmx::TmxTileSet_obj::__register();
+::com::haxepunk::tmx::TmxPropertySet_obj::__register();
+::com::haxepunk::tmx::TmxOrderedHash_obj::__register();
+::com::haxepunk::tmx::TmxObjectGroup_obj::__register();
+::com::haxepunk::tmx::TmxObject_obj::__register();
+::com::haxepunk::tmx::TmxMap_obj::__register();
+::com::haxepunk::tmx::TmxLayer_obj::__register();
+::com::haxepunk::tmx::TmxEntity_obj::__register();
 ::com::haxepunk::masks::SlopedGrid_obj::__register();
 ::com::haxepunk::masks::TileType_obj::__register();
 ::com::haxepunk::masks::Polygon_obj::__register();
@@ -365,14 +434,19 @@ hx::RegisterResources( hx::GetResources() );
 ::com::haxepunk::masks::Grid_obj::__register();
 ::com::haxepunk::masks::Circle_obj::__register();
 ::com::haxepunk::masks::Hitbox_obj::__register();
+::com::haxepunk::graphics::atlas::TileAtlas_obj::__register();
 ::com::haxepunk::graphics::atlas::TextureAtlas_obj::__register();
 ::com::haxepunk::graphics::atlas::AtlasRegion_obj::__register();
 ::com::haxepunk::graphics::atlas::AtlasData_obj::__register();
 ::com::haxepunk::graphics::atlas::Layer_obj::__register();
 ::com::haxepunk::graphics::atlas::Atlas_obj::__register();
+::com::haxepunk::graphics::Tilemap_obj::__register();
 ::com::haxepunk::graphics::Text_obj::__register();
+::com::haxepunk::graphics::Spritemap_obj::__register();
 ::com::haxepunk::graphics::Image_obj::__register();
 ::com::haxepunk::graphics::Graphiclist_obj::__register();
+::com::haxepunk::graphics::Canvas_obj::__register();
+::com::haxepunk::graphics::Animation_obj::__register();
 ::com::haxepunk::debug::LayerList_obj::__register();
 ::com::haxepunk::debug::Label_obj::__register();
 ::flash::text::TextField_obj::__register();
@@ -489,14 +563,19 @@ hx::RegisterResources( hx::GetResources() );
 ::flash::text::TextField_obj::__boot();
 ::com::haxepunk::debug::Label_obj::__boot();
 ::com::haxepunk::debug::LayerList_obj::__boot();
+::com::haxepunk::graphics::Animation_obj::__boot();
+::com::haxepunk::graphics::Canvas_obj::__boot();
 ::com::haxepunk::graphics::Graphiclist_obj::__boot();
 ::com::haxepunk::graphics::Image_obj::__boot();
+::com::haxepunk::graphics::Spritemap_obj::__boot();
 ::com::haxepunk::graphics::Text_obj::__boot();
+::com::haxepunk::graphics::Tilemap_obj::__boot();
 ::com::haxepunk::graphics::atlas::Atlas_obj::__boot();
 ::com::haxepunk::graphics::atlas::Layer_obj::__boot();
 ::com::haxepunk::graphics::atlas::AtlasData_obj::__boot();
 ::com::haxepunk::graphics::atlas::AtlasRegion_obj::__boot();
 ::com::haxepunk::graphics::atlas::TextureAtlas_obj::__boot();
+::com::haxepunk::graphics::atlas::TileAtlas_obj::__boot();
 ::com::haxepunk::masks::Hitbox_obj::__boot();
 ::com::haxepunk::masks::Circle_obj::__boot();
 ::com::haxepunk::masks::Grid_obj::__boot();
@@ -507,6 +586,14 @@ hx::RegisterResources( hx::GetResources() );
 ::com::haxepunk::masks::Polygon_obj::__boot();
 ::com::haxepunk::masks::TileType_obj::__boot();
 ::com::haxepunk::masks::SlopedGrid_obj::__boot();
+::com::haxepunk::tmx::TmxEntity_obj::__boot();
+::com::haxepunk::tmx::TmxLayer_obj::__boot();
+::com::haxepunk::tmx::TmxMap_obj::__boot();
+::com::haxepunk::tmx::TmxObject_obj::__boot();
+::com::haxepunk::tmx::TmxObjectGroup_obj::__boot();
+::com::haxepunk::tmx::TmxOrderedHash_obj::__boot();
+::com::haxepunk::tmx::TmxPropertySet_obj::__boot();
+::com::haxepunk::tmx::TmxTileSet_obj::__boot();
 ::flash::events::Event_obj::__boot();
 ::com::haxepunk::tweens::TweenEvent_obj::__boot();
 ::com::haxepunk::tweens::misc::Alarm_obj::__boot();
@@ -520,6 +607,16 @@ hx::RegisterResources( hx::GetResources() );
 ::com::haxepunk::utils::XBOX_GAMEPAD_obj::__boot();
 ::com::haxepunk::utils::Key_obj::__boot();
 ::com::haxepunk::utils::Touch_obj::__boot();
+::extendedhxpunk::ext::EXTCamera_obj::__boot();
+::extendedhxpunk::ext::EXTColor_obj::__boot();
+::extendedhxpunk::ext::EXTConsole_obj::__boot();
+::extendedhxpunk::ext::EXTKey_obj::__boot();
+::extendedhxpunk::ext::EXTMath_obj::__boot();
+::extendedhxpunk::ext::EXTOffsetType_obj::__boot();
+::extendedhxpunk::ext::EXTScene_obj::__boot();
+::extendedhxpunk::ext::EXTUtility_obj::__boot();
+::extendedhxpunk::ui::UIView_obj::__boot();
+::extendedhxpunk::ui::UIViewController_obj::__boot();
 ::flash::Memory_obj::__boot();
 ::flash::_Vector::Vector_Impl__obj::__boot();
 ::flash::display::Bitmap_obj::__boot();
@@ -617,6 +714,12 @@ hx::RegisterResources( hx::GetResources() );
 ::haxe::io::Eof_obj::__boot();
 ::haxe::io::Error_obj::__boot();
 ::haxe::io::Path_obj::__boot();
+::haxe::xml::_Fast::NodeAccess_obj::__boot();
+::haxe::xml::_Fast::AttribAccess_obj::__boot();
+::haxe::xml::_Fast::HasAttribAccess_obj::__boot();
+::haxe::xml::_Fast::HasNodeAccess_obj::__boot();
+::haxe::xml::_Fast::NodeListAccess_obj::__boot();
+::haxe::xml::Fast_obj::__boot();
 ::openfl::AssetCache_obj::__boot();
 ::openfl::Assets_obj::__boot();
 ::openfl::AssetData_obj::__boot();
@@ -639,6 +742,14 @@ hx::RegisterResources( hx::GetResources() );
 ::openfl::utils::Float32Array_obj::__boot();
 ::openfl::utils::WeakRef_obj::__boot();
 ::sys::io::FileOutput_obj::__boot();
-::twogames::MainScene_obj::__boot();
+::twogames::GGJConstants_obj::__boot();
+::twogames::entities::GameEntity_obj::__boot();
+::twogames::entities::Flyer_obj::__boot();
+::twogames::entities::Player_obj::__boot();
+::twogames::entities::ActorFacing_obj::__boot();
+::twogames::entities::WalkerBehavior_obj::__boot();
+::twogames::entities::ActorPosition_obj::__boot();
+::twogames::entities::Walker_obj::__boot();
+::twogames::scenes::MainRoom_obj::__boot();
 }
 

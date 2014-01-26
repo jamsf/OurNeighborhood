@@ -6,9 +6,6 @@
 #ifndef INCLUDED_com_haxepunk_Engine
 #include <com/haxepunk/Engine.h>
 #endif
-#ifndef INCLUDED_com_haxepunk_RenderMode
-#include <com/haxepunk/RenderMode.h>
-#endif
 #ifndef INCLUDED_flash_Lib
 #include <flash/Lib.h>
 #endif
@@ -43,12 +40,12 @@
 #include <twogames/Main.h>
 #endif
 
-Void DocumentClass_obj::__construct(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode)
+Void DocumentClass_obj::__construct()
 {
 HX_STACK_PUSH("DocumentClass::new","ApplicationMain.hx",186);
 {
 	HX_STACK_LINE(186)
-	super::__construct(width,height,frameRate,fixed,renderMode);
+	super::__construct();
 }
 ;
 	return null();
@@ -57,14 +54,14 @@ HX_STACK_PUSH("DocumentClass::new","ApplicationMain.hx",186);
 DocumentClass_obj::~DocumentClass_obj() { }
 
 Dynamic DocumentClass_obj::__CreateEmpty() { return  new DocumentClass_obj; }
-hx::ObjectPtr< DocumentClass_obj > DocumentClass_obj::__new(Dynamic width,Dynamic height,Dynamic frameRate,Dynamic fixed,::com::haxepunk::RenderMode renderMode)
+hx::ObjectPtr< DocumentClass_obj > DocumentClass_obj::__new()
 {  hx::ObjectPtr< DocumentClass_obj > result = new DocumentClass_obj();
-	result->__construct(width,height,frameRate,fixed,renderMode);
+	result->__construct();
 	return result;}
 
 Dynamic DocumentClass_obj::__Create(hx::DynamicArray inArgs)
 {  hx::ObjectPtr< DocumentClass_obj > result = new DocumentClass_obj();
-	result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3],inArgs[4]);
+	result->__construct();
 	return result;}
 
 ::flash::display::Stage DocumentClass_obj::get_stage( ){

@@ -48,10 +48,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/debug/console_play.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("gfx/debug/console_step.png", __ASSET__gfx_debug_console_step_png);
 		type.set ("gfx/debug/console_step.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("gfx/player.png", __ASSET__gfx_player_png);
-		type.set ("gfx/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/flyer.png", __ASSET__gfx_flyer_png);
+		type.set ("gfx/flyer.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/shifter0.png", __ASSET__gfx_shifter0_png);
+		type.set ("gfx/shifter0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/shifter1.png", __ASSET__gfx_shifter1_png);
+		type.set ("gfx/shifter1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/shifter_spritesheet0.png", __ASSET__gfx_shifter_spritesheet0_png);
+		type.set ("gfx/shifter_spritesheet0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/shifter_spritesheet1.png", __ASSET__gfx_shifter_spritesheet1_png);
+		type.set ("gfx/shifter_spritesheet1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/tileset.png", __ASSET__gfx_tileset_png);
+		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("gfx/walker_spritesheet.png", __ASSET__gfx_walker_spritesheet_png);
+		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		className.set ("maps/mainroom.tmx", __ASSET__maps_mainroom_tmx);
+		type.set ("maps/mainroom.tmx", Reflect.field (AssetType, "binary".toUpperCase ()));
 		
 		
 		#elseif html5
@@ -68,10 +82,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("gfx/debug/console_play.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("gfx/debug/console_step.png", "gfx/debug/console_step.png");
 		type.set ("gfx/debug/console_step.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("gfx/player.png", "gfx/player.png");
-		type.set ("gfx/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/flyer.png", "gfx/flyer.png");
+		type.set ("gfx/flyer.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/shifter0.png", "gfx/shifter0.png");
+		type.set ("gfx/shifter0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/shifter1.png", "gfx/shifter1.png");
+		type.set ("gfx/shifter1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/shifter_spritesheet0.png", "gfx/shifter_spritesheet0.png");
+		type.set ("gfx/shifter_spritesheet0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/shifter_spritesheet1.png", "gfx/shifter_spritesheet1.png");
+		type.set ("gfx/shifter_spritesheet1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/tileset.png", "gfx/tileset.png");
+		type.set ("gfx/tileset.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("gfx/walker_spritesheet.png", "gfx/walker_spritesheet.png");
+		type.set ("gfx/walker_spritesheet.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("font/04B_03__.ttf", __ASSET__font_04b_03___ttf);
 		type.set ("font/04B_03__.ttf", Reflect.field (AssetType, "font".toUpperCase ()));
+		path.set ("maps/mainroom.tmx", "maps/mainroom.tmx");
+		type.set ("maps/mainroom.tmx", Reflect.field (AssetType, "binary".toUpperCase ()));
 		
 		
 		#else
@@ -82,6 +110,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 			var bytes = ByteArray.readFile ("app/native/manifest");
 			#elseif tizen
 			var bytes = ByteArray.readFile ("../res/manifest");
+			#elseif emscripten
+			var bytes = ByteArray.readFile ("assets/manifest");
 			#else
 			var bytes = ByteArray.readFile ("manifest");
 			#end
@@ -519,8 +549,15 @@ class __ASSET__gfx_debug_console_output_png extends flash.display.BitmapData { p
 class __ASSET__gfx_debug_console_pause_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_debug_console_play_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__gfx_debug_console_step_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__gfx_player_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_flyer_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_shifter0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_shifter1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_shifter_spritesheet0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_shifter_spritesheet1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_tileset_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__gfx_walker_spritesheet_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__font_04b_03___ttf extends flash.text.Font { }
+class __ASSET__maps_mainroom_tmx extends flash.utils.ByteArray { }
 
 
 #elseif html5
@@ -532,7 +569,14 @@ class __ASSET__font_04b_03___ttf extends flash.text.Font { }
 
 
 
+
+
+
+
+
+
 class __ASSET__font_04b_03___ttf extends flash.text.Font { }
+
 
 
 #end
